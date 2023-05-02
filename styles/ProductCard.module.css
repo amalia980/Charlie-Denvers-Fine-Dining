@@ -1,0 +1,12 @@
+.card_container {
+    max-width: 250px;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    margin-bottom: 2rem;
+
+}
+
+.img {
+    object-fit: cover;
+}
+

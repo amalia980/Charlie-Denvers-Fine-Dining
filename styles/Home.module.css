@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  width: 100%;
+  height: 99vh;
+}
+
+.split1 {
+  background-color: #5a0f0c;
+}
+
+.split2 {
+  background-color: rgb(53, 13, 6);
+}
+
+.split1, .split2 {
+  width: 50%;
+  height: 99vh;
+  flex: 1;
+  display: flex;
+
+}
+
+.header_images {
+  object-fit: cover;
+  height: 99vh;
+}
+
+.book_order_containers {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  color: white;
+  padding: 5rem;
+}
+
+.book_order_btns {
+  width: 15rem;
+  height: 5rem;
+  border-color: white;
+  color: white;
+}

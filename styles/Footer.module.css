@@ -1,0 +1,73 @@
+.footer {
+    display: flex;
+    width: 100%;
+}
+
+.content_footer {
+    width: 80%;
+    height: 15rem;
+    background: url("../public/assets/Backgrounds/yogesh-pedamkar-LmsYLB7L9xk-unsplash.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer_img_wrapper {
+    width: 30%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerContent_wrapper {
+    color: white;
+    width: 100%;
+ margin-left: 5rem;
+}
+
+.footerContent_grid {
+    display: grid; grid-template-columns: auto auto;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+
+.footer_hours {
+    color: white;
+     width: 40%;
+}
+
+
+@media screen and (max-width: 480px) {
+    
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .content_footer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 2rem 0;
+        height: 100%;
+    }
+
+    .footerContent_wrapper {
+     margin-left: 0rem;
+    }
+
+    .footerContent_grid {
+        display: flex; 
+        flex-direction: column;
+    }
+
+    .footer_hours {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .footer_img_wrapper {
+        display: none;
+    }
+}
