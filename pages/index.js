@@ -4,18 +4,26 @@ import styles from "../styles/Home.module.css";
 import bookingImg from "../public/assets/Backgrounds/header_background.jpg";
 import orderImg from "../public/assets/Backgrounds/danny-lines-ucQny4RWXm0-unsplash.jpg";
 import Image from "next/image";
-import { Button, Typography, Box } from "@material-ui/core";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <>
-      <Box className={styles.header}>
+      <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <title>Charlie Denvers Fine Dining</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet"/>
+      </Head>
+      
+      <div className={styles.header}>
         <div className={styles.split1}>
           <div className={styles.book_order_containers}>
-            <Typography variant="h4">
-              Welcome to Charlie Denver's Fine Dining!{" "}
-            </Typography>
-            <Button
+            <h1>
+              Welcome to Charlie Denvers Fine Dining!
+            </h1>
+            <button
               style={{
                 color: "white",
                 borderColor: "white",
@@ -24,29 +32,28 @@ export default function Home() {
                 fontSize: "1vw",
                 marginTop: "2rem",
               }}
-              variant="outlined"
               className={styles.book_order_btns}
             >
               book a table
-            </Button>
+            </button>
           </div>
         </div>
         <div className={styles.split2}>
-          <Image className={styles.header_images} src={bookingImg} />
+          <Image className={styles.header_images} src={bookingImg} alt="booking image" />
         </div>
-      </Box>
+      </div>
 
-      <Box className={styles.header}>
+      <div className={styles.header}>
         <div className={styles.split1}>
-          <Image className={styles.header_images} src={orderImg} />
+          <Image className={styles.header_images} src={orderImg} alt="order image" />
         </div>
         <div className={styles.split2}>
           <div className={styles.book_order_containers}>
-            <Typography variant="h4" color="inherit">
+            <h4>
               Enjoy our food at your own convenience. Everything on our regular
               menu will be accessible.
-            </Typography>
-            <Button
+            </h4>
+            <button
               style={{
                 color: "white",
                 borderColor: "white",
@@ -54,14 +61,13 @@ export default function Home() {
                 fontSize: "1vw",
                 marginTop: "2rem",
               }}
-              variant="outlined"
               className={styles.book_order_btns}
             >
               order to home
-            </Button>
+            </button>
           </div>
         </div>
-      </Box>
+      </div>
     </>
   );
 }

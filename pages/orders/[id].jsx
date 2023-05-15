@@ -1,6 +1,5 @@
 import styles from "../../styles/Order.module.css";
 import Image from "next/image";
-import { CheckCircle } from "@material-ui/icons";
 import paid from "../../public/assets/icons_logos/paid.png"
 import preparing from "../../public/assets/icons_logos/preparing.png"
 import ontheway from "../../public/assets/icons_logos/bike.png"
@@ -50,51 +49,51 @@ const Order = ({order}) => {
 
         <div className={styles.row}>
           <div className={statusClass(0)}>
-            <Image src={paid} width={30} height={30} alt="" />
+            <Image src={paid} width={30} height={30} alt="paid icon" />
             <span>Payment</span>
             <div className={styles.checkedIcon}>
-              <CheckCircle
+              {/* <CheckCircle
                 className={styles.checkedIcon}
                 width={20}
                               height={20}
                 style={{fill: "springgreen"}}
-              />
+              /> */}
             </div>
           </div>
           <div className={statusClass(1)}>
-            <Image src={preparing} width={30} height={30} alt="" />
+            <Image src={preparing} width={30} height={30} alt="preparing icon" />
             <span>Preparing</span>
             <div className={styles.checkedIcon}>
-              <CheckCircle
+              {/* <CheckCircle
                 className={styles.checkedIcon}
                 width={20}
                               height={20}
                               style={{fill: "springgreen"}}
-              />
+              /> */}
             </div>
           </div>
           <div className={statusClass(2)}>
-            <Image src={ontheway} width={30} height={30} alt="" />
+            <Image src={ontheway} width={30} height={30} alt="one the way icon" />
             <span>On the way</span>
             <div className={styles.checkedIcon}>
-              <CheckCircle
+              {/* <CheckCircle
                 className={styles.checkedIcon}
                 width={20}
                               height={20}
                               style={{fill: "springgreen"}}
-              />
+              /> */}
             </div>
           </div>
           <div className={statusClass(3)}>
-            <Image src={delivered} width={30} height={30} alt="" />
+            <Image src={delivered} width={30} height={30} alt="delivered icon" />
             <span>Delivered</span>
             <div className={styles.checkedIcon}>
-              <CheckCircle
+              {/* <CheckCircle
                 className={styles.checkedIcon}
                 width={20}
                 height={20}
                 style={{fill: "springgreen"}}
-              />
+              /> */}
             </div>
           </div>
         </div>

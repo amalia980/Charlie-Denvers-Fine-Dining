@@ -1,26 +1,17 @@
-import {
-    Button,
-    ButtonGroup,
-    Checkbox,
-    Container,
-    FormControlLabel,
-    TextField,
-    useTheme,
-  } from "@material-ui/core";
   import Image from "next/image";
   import React from "react";
   import styles from "../../styles/Product.module.css";
   import axios from "axios";
-  import { useEffect } from "react";
+  import { useEffect, useState } from "react";
   import { useDispatch } from "react-redux";
   import { addProduct } from "../../redux/cartSlice";
   
   const Product = ({ item }) => {
-    const [price, setPrice] = React.useState(item.price[0]);
-    const [size, setSize] = React.useState(0);
-    const [quantity, setQuantity] = React.useState(1);
-    const [ifType, setIfType] = React.useState(false);
-    const [extras, setExtras] = React.useState([]);
+    const [price, setPrice] = useState(item.price[0]);
+    const [size, setSize] = useState(0);
+    const [quantity, setQuantity] = useState(1);
+    const [ifType, setIfType] = useState(false);
+    const [extras, setExtras] = useState([]);
     const dispatch = useDispatch();
   
     useEffect(() => {
@@ -30,7 +21,7 @@ import {
       if (item.extraOptions.length > 0) {
         setExtras(true);
       }
-    }, []);
+    });
   
     const changePrice = (number) => {
       setPrice(price + number);
@@ -81,29 +72,27 @@ import {
               <div>
                 <h3 className={styles.choose}>Choose how many bites</h3>
                 <div className={styles.sizes}>
-                  <ButtonGroup>
-                    <Button
+                    <button
                       style={{ color: "white" }}
                       onClick={() => handleSize(0)}
                       key={item._id}
                     >
                       {item.type[0]}
-                    </Button>
-                    <Button
+                    </button>
+                    <button
                       style={{ color: "white" }}
                       onClick={() => handleSize(1)}
                       key={item._id}
                     >
                       {item.type[1]}
-                    </Button>
-                    <Button
+                    </button>
+                    <button
                       style={{ color: "white" }}
                       onClick={() => handleSize(2)}
                       key={item._id}
                     >
                       {item.type[2]}
-                    </Button>
-                  </ButtonGroup>
+                    </button>
                 </div>
               </div>
             )}
@@ -114,37 +103,32 @@ import {
                 {item.extraOptions.map((option) => (
                   <div className={styles.option} key={
                     option._id}>
-                    <FormControlLabel
-                      control={
-                        <Checkbox
+                    <input
+                      type="checkbox"
                           onChange={(e) => handleChange(e, option)}
                           id={option.text}
                           name={option.text}
-                          style={{ color: "white" }}
+                      style={{ color: "white" }}
+                      value={option.text}
                         />
-                      }
-                      label={option.text}
-                    />
                   </div>
                 ))}
               </div>
             )}
-            <TextField
+            <input
               onChange={(e) => setQuantity(e.target.value)}
               className={styles.quantity}
-              variant="outlined"
               type="number"
-              defaultValue={1}
-            ></TextField>
+              value={1}
+            ></input>
   
-            <Button
+            <button
               style={{ marginLeft: "10px" }}
               className={styles.button}
-              variant="contained"
               onClick={handleAddToCart}
             >
               add to cart
-              </Button>
+              </button>
           </div>
         </div>
       </>

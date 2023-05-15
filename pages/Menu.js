@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Container } from '@material-ui/core';
 import styles from '../styles/Menu.module.css';
 import ProductCard from '../components/ProductCard';
 
@@ -39,7 +38,6 @@ const Menu = ({ itemsApi }) => {
 
   return (
     <div className={styles.wrapper}>
-      <Container>
         <h1>Sushi</h1>
         <div className={styles.menu_container}>
           {sushi.map((item) => (
@@ -81,7 +79,6 @@ const Menu = ({ itemsApi }) => {
               <ProductCard item={item} key={item._id} />
           ))}
         </div>
-      </Container>
     </div>
   )
 };

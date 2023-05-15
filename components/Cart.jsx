@@ -2,12 +2,9 @@ import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import styles from "../styles/Cart.module.css";
 
-import Button from "@material-ui/core/Button";
-import { IconButton, Typography } from "@material-ui/core";
-import { Close } from "@material-ui/icons";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
+import Image from "next/image";
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
@@ -15,7 +12,6 @@ const Cart = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const shoppingCart = useSelector((state) => state.cart);
   const quantity = useSelector((state) => state.cart.quantity);
-  console.log(cart);
 
   //calculate the price of all items
   const itemsPrice = cart.reduce(
@@ -55,12 +51,11 @@ const Cart = () => {
       <div onClick={handleClose} className={styles.underlay}></div>
       <div className={styles.shopping_container}>
         <div className={styles.shopping_cart_header}>
-          <Typography variant="body1" style={{ color: "white" }}>
             SHOPPING CART
-          </Typography>
-          <IconButton onClick={handleClose}>
-            <Close style={{ color: "white" }} />
-          </IconButton>
+          <button onClick={handleClose}>
+            {/* insert icon */}
+            Shopping cart
+          </button>
         </div>
         <div className={styles.all_products_container}>
           <div className={styles.cart_is_empty}>
@@ -68,7 +63,7 @@ const Cart = () => {
           </div>
           {shoppingCart.products.map((item) => (
             <div key={item._id} className={styles.products_wrapper}>
-              <img
+              <Image
                 className="img-productera"
                 width="60"
                 height="60"
@@ -107,9 +102,7 @@ const Cart = () => {
             <h4>Total price:</h4>
             <h4>${totalPrice}</h4>
           </div>
-          <Button>
-            <div onClick={handleNavigate}>TO CHECKOUT</div>
-          </Button>
+            <button onClick={handleNavigate}>TO CHECKOUT</button>
         </div>
       </div>
     </div>
