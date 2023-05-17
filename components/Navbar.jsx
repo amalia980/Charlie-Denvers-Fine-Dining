@@ -18,15 +18,14 @@
 // import { CartContext } from '../context/CartContext';
 // import { useSelector } from 'react-redux';
 
-
 // import logo from "../public/assets/icons_logos/CD_diner-logo_for_black_bg.png";
 // import Cart from './Cart';
-  
+
 //   const drawerWidth = 540;
 //   const navItems = ['Home', 'About', 'Contact'];
-  
+
 // const Navbar = (props) => {
-  
+
 //   const quantity = useSelector(state => state.cart.quantity);
 
 //   const { window, children } = props;
@@ -46,11 +45,11 @@
 //   const openCart = () => {
 //     setCartVisible(true);
 //   }
-  
+
 //   const handleDrawerToggle = () => {
 //     setMobileOpen((prevState) => !prevState);
 //   };
-  
+
 //   const drawer = (
 //     <Box onClick={handleDrawerToggle} style={{ textAlign: 'center' }}>
 //       <Typography variant="h6" style={{ my: 2 }}>
@@ -68,16 +67,15 @@
 //       </List>
 //     </Box>
 //   );
-  
+
 //   const container = window !== undefined ? () => window().document.body : undefined;
 
-  
 //   return (
 //     <>
 //       {cartVisible && <Cart />}
 //       <AppBar component="nav" style={{ backgroundColor: "black" }}>
 //         <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
-            
+
 //           <div>
 //           {showIcon && (
 //             <IconButton
@@ -113,8 +111,6 @@
 //         </Toolbar>
 //       </AppBar>
 
-        
-        
 //       <Box component="nav">
 //         <Drawer
 //           container={container}
@@ -134,12 +130,12 @@
 //     </>
 //   )
 // };
-  
+
 //   export default Navbar;
 import { useContext } from "react";
 import { useState } from "react";
-import { CartContext } from '../context/CartContext';
-import { useSelector } from 'react-redux';
+import { CartContext } from "../context/CartContext";
+import { useSelector } from "react-redux";
 import logo from "../public/assets/icons_logos/Charlie LOGO.svg";
 import Image from "next/image";
 import Link from "next/link";
@@ -150,40 +146,72 @@ import phoneLogo from "../public/assets/icons_logos/icons8-rotary-dial-telephone
 import menuLogo from "../public/assets/icons_logos/icons8-menu-50.png";
 
 const Navbar = () => {
-
   const { cartVisible, setCartVisible } = useContext(CartContext);
-  const quantity = useSelector(state => state.cart.quantity);
+  const quantity = useSelector((state) => state.cart.quantity);
   const [openNav, setOpenNav] = useState(false);
 
   const openCart = () => {
     setCartVisible(true);
-  }
-
+  };
 
   return (
     <>
       {cartVisible && <Cart />}
-      
+
       <nav className={styles.navbar}>
-        <Image className={styles.menuIcon} src={menuLogo} width="30" alt="menu icon" /> 
+            <Image
+                                     
+              src={phoneLogo}
+              width="30"
+              height="30"
+              alt="phone icon"
+            />
+            <Image
+              onClick={() => setOpenNav(!openNav)}
+              className={styles.menuIcon}
+              src={menuLogo}
+              width="30"
+              alt="menu icon"
+          />
         
-        <Image className={styles.phoneLogo} src={phoneLogo} width="30" height="30" alt="phone icon" />
-        
-        <div className={styles.middleSectionNav}>
-        <Link href="/">Book a table</Link>
-        <Link href="/">
-        <Image className={styles.companyLogo} width="70" src={logo} alt="company logo" />
-        </Link>
-          <Link href="/Menu">Menu</Link>
-        </div>
-        
-        <div className={styles.cartWrapper}>
-        <Image src={cartLogo} width="30" height="30" onClick={openCart} alt="cart icon"/>
+        <ul className={styles.navLinks}>
+          
+            <li className={styles.bookTable}>
+              <Link href="/">
+                Book a table
+              </Link>
+            </li>
+            <li className={styles.companyLogo}>
+              <Link href="/">
+                <Image
+                  
+                  width="70"
+                  src={logo}
+                  alt="company logo"
+                />
+              </Link>
+            </li>
+            <li className={styles.menu}>
+              <Link  href="/Menu">
+                Menu
+            </Link>
+            </li>
+        </ul>
+
+        <span>
+        <Image
+              className={styles.cartWrapper}
+              src={cartLogo}
+              width="30"
+              height="30"
+              onClick={openCart}
+              alt="cart icon"
+            />
           <span>{quantity}</span>
-          </div>
+          </span>
       </nav>
     </>
   );
-}
+};
 
 export default Navbar;

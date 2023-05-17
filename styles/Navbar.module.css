@@ -1,46 +1,58 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-background-color: #170F00;
-font-family: 'Crimson Text', serif;
-color: #FFF3B2;
-align-items: center;
-height: 4rem;
-padding: 1rem;
-font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #170f00;
+  font-family: "Crimson Text", serif;
+  color: #fff3b2;
+  height: 4.5rem;
+  padding: 1rem;
+  font-size: 2rem;
+  width: 100%;
+  box-shadow: 0 14px 20px rgba(0, 0, 0, 0.418);
+position: fixed;
 overflow: hidden;
 }
 
+
 .menuIcon {
-    display: none;
+  display: none;
 }
 
-.middleSectionNav {
-    display: flex;
-    align-items: center;
-    
+.navLinks {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  align-items: center;
 }
+
+.bookTable {
+  margin-left: -6.5rem;
+}
+
 .companyLogo {
-    margin: 2rem 2rem 1.3rem 2rem;
+  margin: 2rem 2rem 1.3rem 2rem;
 }
 
-@media screen and (max-width: 600px) {
-    .phoneLogo, .cartWrapper, .middleSectionNav {display: none;}
-    .navbar .menuIcon {
-      display: block;
-    }
+@media screen and (max-width: 768px) {
+  .phoneLogo,
+  .bookTable,
+  .menu {
+    display: none;
   }
+  .menuIcon {
+    display: block;
+  }
+}
+/*
   
-  @media screen and (max-width: 600px) {
-    .navbar.responsive {position: relative;}
-    .navbar.responsive .icon {
+  @media screen and (max-width: 768px) {
+    .hamburgerNav ul {
       position: absolute;
       right: 0;
       top: 0;
+      flex-direction: column;
+      width: 100%;
+      height: calc(100vh - 77px);
     }
-    .navbar.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-}
+} */
